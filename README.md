@@ -1,13 +1,13 @@
 # 🚜 Bulldozer Sale Price Prediction using Machine Learning
 
-## 📌 Overview
+## Overview
 
 This project focuses on predicting bulldozer sale prices using machine learning regression techniques.  
 The dataset is sourced from the Kaggle **Bluebook for Bulldozers** competition and contains historical auction data, machine specifications, and operational attributes.
 
 The goal is to build a robust predictive model that estimates fair market prices for heavy machinery using structured tabular data.
 
-### 🎯 Key Objectives
+### Key Objectives
 - Data preprocessing and cleaning
 - Feature engineering from time-series auction data
 - Handling missing values and high-cardinality categorical variables
@@ -18,7 +18,7 @@ The goal is to build a robust predictive model that estimates fair market prices
 
 ---
 
-## 📊 Dataset Information
+## Dataset Information
 
 - **Source:** Kaggle – Bluebook for Bulldozers
 - **Rows:** 412,698
@@ -26,7 +26,7 @@ The goal is to build a robust predictive model that estimates fair market prices
 - **Engineered Features:** 59
 - **Target Variable:** `SalePrice`
 
-### 🧾 Example Features
+### Example Features
 - YearMade
 - ProductSize
 - MachineHoursCurrentMeter
@@ -38,7 +38,7 @@ The goal is to build a robust predictive model that estimates fair market prices
 
 ---
 
-## 🛠️ Technologies & Libraries
+## Technologies & Libraries
 
 ### Programming Language
 - Python
@@ -56,9 +56,9 @@ The goal is to build a robust predictive model that estimates fair market prices
 
 ---
 
-## 🧹 Data Preprocessing & Feature Engineering
+## Data Preprocessing & Feature Engineering
 
-### 📅 Time-based Feature Engineering
+### Time-based Feature Engineering
 Extracted from `saledate`:
 - Sale Year
 - Sale Month
@@ -66,21 +66,21 @@ Extracted from `saledate`:
 - Day of Week
 - Day of Year
 
-### 🔢 Categorical Encoding
+### Categorical Encoding
 - Converted object columns into categorical dtype
 - Encoded categories into numeric codes for ML compatibility
 
-### ❗ Missing Value Handling
+### Missing Value Handling
 - Median imputation for numerical variables
 - Added binary indicators for imputed values
 
-### 🧼 Data Cleaning
+### Data Cleaning
 - Fixed invalid `YearMade` values
 - Removed raw datetime column after feature extraction
 
 ---
 
-## 📈 Exploratory Data Analysis (EDA)
+## Exploratory Data Analysis (EDA)
 
 Key analyses performed:
 - Distribution of `SalePrice` over time
@@ -89,7 +89,7 @@ Key analyses performed:
 - Residual error distribution
 - Actual vs Predicted comparisons
 
-### 🔍 Key Insights
+### Key Insights
 - `YearMade` and `ProductSize` are strong predictors of price
 - High-value machines exhibit higher prediction variance
 - Dataset contains significant missingness and high-cardinality categorical variables
@@ -97,9 +97,9 @@ Key analyses performed:
 
 ---
 
-## 🤖 Machine Learning Model
+## Machine Learning Model
 
-### 🌲 Random Forest Regressor
+### Random Forest Regressor
 
 A Random Forest model was selected due to its:
 - Robustness to non-linear relationships
@@ -112,7 +112,7 @@ RandomForestRegressor()
 
 ---
 
-## 📊 Initial Model Performance
+## Initial Model Performance
 
 | Metric | Train | Test |
 |--------|------|------|
@@ -120,11 +120,11 @@ RandomForestRegressor()
 | MAE | 1568.72 | 5921.48 |
 | RMSLE | 0.0848 | 0.2447 |
 
-⚠️ Observation: Initial model showed signs of overfitting.
+ Observation: Initial model showed signs of overfitting.
 
 ---
 
-## 🔧 Hyperparameter Optimization
+## Hyperparameter Optimization
 
 Optimized using `RandomizedSearchCV`.
 
@@ -141,7 +141,7 @@ Optimized using `RandomizedSearchCV`.
 
 ---
 
-## 📉 Log Transformation
+## Log Transformation
 
 To improve model stability and RMSLE performance:
 
@@ -155,13 +155,13 @@ Predictions were transformed back using:
 np.expm1(predictions)
 ```
 
-### 📌 Impact
+### Impact
 - Reduced variance in target distribution
 - Improved RMSLE significantly
 
 ---
 
-## 🏁 Final Model Performance
+## Final Model Performance
 
 | Metric | Train | Test |
 |--------|------|------|
@@ -171,7 +171,7 @@ np.expm1(predictions)
 
 ---
 
-## 📌 Feature Importance
+## Feature Importance
 
 Top influential features:
 1. YearMade  
@@ -180,14 +180,14 @@ Top influential features:
 4. fiSecondaryDesc  
 5. sale_year  
 
-### 🧠 Interpretation
+### Interpretation
 - Newer machines tend to have higher prices
 - Machine size strongly correlates with operational value
 - Configuration and equipment type significantly influence auction price
 
 ---
 
-## 📊 Model Evaluation Visuals
+## Model Evaluation Visuals
 
 - Correlation Heatmap
 - Feature Importance Plot
@@ -197,7 +197,7 @@ Top influential features:
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```bash
 Bulldozer-Price-Prediction/
@@ -212,7 +212,7 @@ Bulldozer-Price-Prediction/
 
 ---
 
-## 📌 Business Impact
+## Business Impact
 
 This model can support:
 - Auction houses in fair price estimation
@@ -222,7 +222,7 @@ This model can support:
 
 ---
 
-## 🚀 Future Improvements
+## Future Improvements
 
 - Implementation of Gradient Boosting models (XGBoost, LightGBM)
 - Advanced feature engineering (interaction features)
