@@ -234,8 +234,8 @@ This model can support:
 
 ## 👨‍💻 Author
 
-**Sami Sevdi**  
-Industrial Engineer | Data Scientist | Machine Learning Specialist    
+**Sami Sevdi**    
+Industrial Engineering Student | Data Science Specialist   
 
 ---
 
